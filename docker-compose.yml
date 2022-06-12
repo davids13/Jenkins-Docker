@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  jenkins:
+    image: jenkins/jenkins:2.60.3-alpine
+    container_name: jenkins-container
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - $PWD/docker-volume-testing:/var/jenkins_home
+      
+# $PWD: This will store the jenkins data in /your/home on the host; /var/jenkins_home: This will store the workspace in /var/jenkins_home
+# the password can be found at: /var/jenkins_home/secrets/initialAdminPassword
